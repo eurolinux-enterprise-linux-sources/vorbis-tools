@@ -1,7 +1,7 @@
 Summary:	The Vorbis General Audio Compression Codec tools
 Name:		vorbis-tools
 Version:	1.4.0
-Release:	10%{?dist}
+Release:	12%{?dist}
 Epoch:		1
 Group:		Applications/Multimedia
 License:	GPLv2
@@ -56,6 +56,12 @@ make DESTDIR=$RPM_BUILD_ROOT install
 
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1:1.4.0-12
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1:1.4.0-11
+- Mass rebuild 2013-12-27
+
 * Tue Sep 03 2013 Kamil Dudka <kdudka@redhat.com> - 1:1.4.0-10
 - fix an off-by-one error in the vcut utility (#1003607)
 

@@ -1,7 +1,7 @@
 Summary:	The Vorbis General Audio Compression Codec tools
 Name:		vorbis-tools
 Version:	1.4.0
-Release:	10%{?dist}
+Release:	13%{?dist}
 Epoch:		1
 Group:		Applications/Multimedia
 License:	GPLv2
@@ -10,10 +10,13 @@ Source:		http://downloads.xiph.org/releases/vorbis/%{name}-%{version}.tar.gz
 Patch0:		vorbis-tools-1.4.0-bz887540.patch
 
 # http://thread.gmane.org/gmane.comp.multimedia.ogg.vorbis.devel/5729
-Patch1:     vorbis-tools-1.4.0-man-page.patch
+Patch1:		vorbis-tools-1.4.0-man-page.patch
 
 # http://thread.gmane.org/gmane.comp.multimedia.ogg.vorbis.devel/5738
-Patch2:     vorbis-tools-1.4.0-bz1003607.patch
+Patch2:		vorbis-tools-1.4.0-bz1003607.patch
+
+# do not use stack variable out of its scope of validity (#1569426)
+Patch4:		vorbis-tools-1.4.0-bz1185558.patch
 
 BuildRequires:	flac-devel
 BuildRequires:	libao-devel
@@ -37,6 +40,7 @@ comment editor.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch4 -p1
 
 
 %build
@@ -56,6 +60,15 @@ make DESTDIR=$RPM_BUILD_ROOT install
 
 
 %changelog
+* Thu May 03 2018 Kamil Dudka <kdudka@redhat.com> - 1:1.4.0-13
+- do not use stack variable out of its scope of validity (#1569426)
+
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1:1.4.0-12
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1:1.4.0-11
+- Mass rebuild 2013-12-27
+
 * Tue Sep 03 2013 Kamil Dudka <kdudka@redhat.com> - 1:1.4.0-10
 - fix an off-by-one error in the vcut utility (#1003607)
 
